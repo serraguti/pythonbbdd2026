@@ -39,3 +39,10 @@ class ServiceHospitales:
         cursor.execute(sql, (nom, dir, tlf, camas, id,))
         self.connection.commit()
         cursor.close()
+        
+    def deleteHospital(self, id):
+        cursor = self.connection.cursor()
+        sql = "delete from HOSPITAL where HOSPITAL_COD=:id"
+        cursor.execute(sql, (id,))
+        self.connection.commit()
+        cursor.close()
