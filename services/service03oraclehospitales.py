@@ -30,3 +30,12 @@ class ServiceHospitales:
         cursor.execute(sql, (id, nombre, dir, tlf, camas,))
         self.connection.commit()
         cursor.close()
+        
+    def updateHospital(self, id, nom, dir, tlf, camas):
+        cursor = self.connection.cursor()
+        sql = "update HOSPITAL set NOMBRE=:nom, DIRECCION=:dir "\
+            ", TELEFONO=:tlf, NUM_CAMA=:cam "\
+            " where HOSPITAL_COD=:id"
+        cursor.execute(sql, (nom, dir, tlf, camas, id,))
+        self.connection.commit()
+        cursor.close()
