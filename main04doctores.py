@@ -1,4 +1,4 @@
-from services import service04oracledoctores as sd
+from services import service04sqlserverdoctores as sd
 #Creamos un objeto de este servicio para las consultas
 service = sd.ServiceDoctores()
 
