@@ -4,6 +4,7 @@ from services import service03oraclehospitales as services
 service = services.ServiceHospitales()
 print("------CRUD Hospitales------")
 print("1.- Mostrar hospitales")
+print("2.- Insertar hospital")
 print("Seleccione una opción")
 opcion = int(input())
 if (opcion == 1):
@@ -11,5 +12,12 @@ if (opcion == 1):
     lista = service.getHospitales()
     for h in lista:
         print(f"Id: {h.idHospital} - {h.nombre} - Camas: {h.camas}")
-
+elif (opcion == 2):
+    id = int(input("Id del nuevo hospital: "))
+    nombre = input("Nombre: ")
+    direccion = input("Dirección: ")
+    tlf = input("Telefono: ")
+    camas = int(input("Número de camas: "))
+    service.insertarHospital(id, nombre, direccion, tlf, camas)
+    print("Insertado OK")
 print("Fin de programa")

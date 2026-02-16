@@ -23,3 +23,10 @@ class ServiceHospitales:
             listaHospitales.append(hospital)
         cursor.close()
         return listaHospitales
+    
+    def insertarHospital(self, id, nombre, dir, tlf, camas):
+        cursor = self.connection.cursor()
+        sql = "insert into HOSPITAL values (:id,:nom,:dir,:tlf,:cam)"
+        cursor.execute(sql, (id, nombre, dir, tlf, camas,))
+        self.connection.commit()
+        cursor.close()
